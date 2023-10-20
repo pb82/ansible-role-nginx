@@ -3,7 +3,7 @@
   command: pkg update -f
   environment:
     ASSUME_ALWAYS_YES: "yes"
-  tags: ['skip_ansible_lint']
+  tags: [skip_ansible_lint]
 
 - name: Ensure nginx is installed.
   pkgng:
@@ -11,7 +11,7 @@
     state: present
 
 - name: Create logs directory.
-  file:
+  ansible.builtin.file:
     path: /var/log/nginx
     state: directory
-    mode: 0755
+    mode: "0755"
